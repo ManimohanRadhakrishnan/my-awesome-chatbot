@@ -1,4 +1,5 @@
-'use client';
+import { useTranslations } from 'next-intl';
+('use client');
 
 import { useState } from 'react';
 import { ChevronDownIcon, LoaderIcon } from './icons';
@@ -14,6 +15,8 @@ export function MessageReasoning({
   isLoading,
   reasoning,
 }: MessageReasoningProps) {
+  const t = useTranslations('../components');
+
   const [isExpanded, setIsExpanded] = useState(true);
 
   const variants = {
@@ -35,14 +38,14 @@ export function MessageReasoning({
     <div className="flex flex-col">
       {isLoading ? (
         <div className="flex flex-row gap-2 items-center">
-          <div className="font-medium">Reasoning</div>
+          <div className="font-medium">{t('reasoning')}</div>
           <div className="animate-spin">
             <LoaderIcon />
           </div>
         </div>
       ) : (
         <div className="flex flex-row gap-2 items-center">
-          <div className="font-medium">Reasoned for a few seconds</div>
+          <div className="font-medium">{t('reasoned-for-a-few-seconds')}</div>
           <button
             data-testid="message-reasoning-toggle"
             type="button"

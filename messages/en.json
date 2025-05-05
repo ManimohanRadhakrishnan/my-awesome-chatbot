@@ -1,0 +1,18 @@
+{
+  "../components": {
+    "cancel-button": "Cancel",
+    "edit-message": "Edit message",
+    "hmm": "Hmm...",
+    "console-message": "Console",
+    "output-string": "output",
+    "copy-action": "Copy",
+    "upvote-response": "Upvote Response",
+    "downvote-response": "Downvote Response",
+    "reasoning": "Reasoning",
+    "reasoned-for-a-few-seconds": "Reasoned for a few seconds",
+    "viewing-previous-version": "You are viewing a previous version",
+    "restore-version-edits": "Restore this version to make edits",
+    "restore-version": "Restore this version",
+    "back-to-latest-version": "Back to latest version"
+  }
+}

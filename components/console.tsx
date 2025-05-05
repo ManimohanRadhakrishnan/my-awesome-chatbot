@@ -1,3 +1,4 @@
+import { useTranslations } from 'next-intl';
 import { TerminalWindowIcon, LoaderIcon, CrossSmallIcon } from './icons';
 import { Button } from './ui/button';
 import {
@@ -28,6 +29,8 @@ interface ConsoleProps {
 }
 
 export function Console({ consoleOutputs, setConsoleOutputs }: ConsoleProps) {
+  const t = useTranslations('../components');
+
   const [height, setHeight] = useState<number>(300);
   const [isResizing, setIsResizing] = useState(false);
   const consoleEndRef = useRef<HTMLDivElement>(null);
@@ -100,7 +103,7 @@ export function Console({ consoleOutputs, setConsoleOutputs }: ConsoleProps) {
             <div className="text-muted-foreground">
               <TerminalWindowIcon />
             </div>
-            <div>Console</div>
+            <div>{t('console-message')}</div>
           </div>
           <Button
             variant="ghost"
@@ -154,7 +157,7 @@ export function Console({ consoleOutputs, setConsoleOutputs }: ConsoleProps) {
                       <picture key={`${consoleOutput.id}-${index}`}>
                         <img
                           src={content.value}
-                          alt="output"
+                          alt={t('output-string')}
                           className="rounded-md max-w-screen-toast-mobile w-full"
                         />
                       </picture>

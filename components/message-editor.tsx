@@ -1,4 +1,5 @@
-'use client';
+import { useTranslations } from 'next-intl';
+('use client');
 
 import type { Message } from 'ai';
 import { Button } from './ui/button';
@@ -26,6 +27,8 @@ export function MessageEditor({
   setMessages,
   reload,
 }: MessageEditorProps) {
+  const t = useTranslations('../components');
+
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
 
   const [draftContent, setDraftContent] = useState<string>(message.content);
@@ -67,7 +70,7 @@ export function MessageEditor({
             setMode('view');
           }}
         >
-          Cancel
+          {t('cancel-button')}
         </Button>
         <Button
           data-testid="message-editor-send-button"
