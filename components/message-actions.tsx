@@ -1,3 +1,4 @@
+import { useTranslations } from 'next-intl';
 import type { Message } from 'ai';
 import { useSWRConfig } from 'swr';
 import { useCopyToClipboard } from 'usehooks-ts';
@@ -27,6 +28,8 @@ export function PureMessageActions({
   vote: Vote | undefined;
   isLoading: boolean;
 }) {
+  const t = useTranslations('../components');
+
   const { mutate } = useSWRConfig();
   const [_, copyToClipboard] = useCopyToClipboard();
 
@@ -60,7 +63,7 @@ export function PureMessageActions({
               <CopyIcon />
             </Button>
           </TooltipTrigger>
-          <TooltipContent>Copy</TooltipContent>
+          <TooltipContent>{t('copy-action')}</TooltipContent>
         </Tooltip>
 
         <Tooltip>
@@ -113,7 +116,7 @@ export function PureMessageActions({
               <ThumbUpIcon />
             </Button>
           </TooltipTrigger>
-          <TooltipContent>Upvote Response</TooltipContent>
+          <TooltipContent>{t('upvote-response')}</TooltipContent>
         </Tooltip>
 
         <Tooltip>
@@ -166,7 +169,7 @@ export function PureMessageActions({
               <ThumbDownIcon />
             </Button>
           </TooltipTrigger>
-          <TooltipContent>Downvote Response</TooltipContent>
+          <TooltipContent>{t('downvote-response')}</TooltipContent>
         </Tooltip>
       </div>
     </TooltipProvider>

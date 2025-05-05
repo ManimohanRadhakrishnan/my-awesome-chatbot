@@ -1,4 +1,5 @@
-'use client';
+import { useTranslations } from 'next-intl';
+('use client');
 
 import { isAfter } from 'date-fns';
 import { motion } from 'framer-motion';
@@ -24,6 +25,8 @@ export const VersionFooter = ({
   documents,
   currentVersionIndex,
 }: VersionFooterProps) => {
+  const t = useTranslations('../components');
+
   const { artifact } = useArtifact();
 
   const { width } = useWindowSize();
@@ -43,9 +46,9 @@ export const VersionFooter = ({
       transition={{ type: 'spring', stiffness: 140, damping: 20 }}
     >
       <div>
-        <div>You are viewing a previous version</div>
+        <div>{t('viewing-previous-version')}</div>
         <div className="text-muted-foreground text-sm">
-          Restore this version to make edits
+          {t('restore-version-edits')}
         </div>
       </div>
 
@@ -86,7 +89,7 @@ export const VersionFooter = ({
             );
           }}
         >
-          <div>Restore this version</div>
+          <div>{t('restore-version')}</div>
           {isMutating && (
             <div className="animate-spin">
               <LoaderIcon />
@@ -99,7 +102,7 @@ export const VersionFooter = ({
             handleVersionChange('latest');
           }}
         >
-          Back to latest version
+          {t('back-to-latest-version')}
         </Button>
       </div>
     </motion.div>

@@ -1,4 +1,5 @@
-'use client';
+import { useTranslations } from 'next-intl';
+('use client');
 
 import type { UIMessage } from 'ai';
 import cx from 'classnames';
@@ -88,6 +89,8 @@ const PurePreviewMessage = ({
               )}
 
             {message.parts?.map((part, index) => {
+              const t = useTranslations('../components');
+
               const { type } = part;
               const key = `message-${message.id}-part-${index}`;
 
@@ -119,7 +122,7 @@ const PurePreviewMessage = ({
                               <PencilEditIcon />
                             </Button>
                           </TooltipTrigger>
-                          <TooltipContent>Edit message</TooltipContent>
+                          <TooltipContent>{t('edit-message')}</TooltipContent>
                         </Tooltip>
                       )}
 
@@ -252,6 +255,8 @@ export const PreviewMessage = memo(
 );
 
 export const ThinkingMessage = () => {
+  const t = useTranslations('../components');
+
   const role = 'assistant';
 
   return (
@@ -276,7 +281,7 @@ export const ThinkingMessage = () => {
 
         <div className="flex flex-col gap-2 w-full">
           <div className="flex flex-col gap-4 text-muted-foreground">
-            Hmm...
+            {t('hmm')}
           </div>
         </div>
       </div>
